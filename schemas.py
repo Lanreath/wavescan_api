@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from typing import Optional, Union
 import uuid
 import enum
 
@@ -21,7 +22,7 @@ class UserBase(BaseModel):
     designation: str
 
 class UserUpdate(UserBase):
-    password: str | None = None
+    password: Union[str, None] = None
 
 class UserCreate(UserBase):
     email: str
