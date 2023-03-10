@@ -21,7 +21,7 @@ app = FastAPI()
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="https://wavescan-api.onrender.com")
 
 def get_db():
     db = SessionLocal()
