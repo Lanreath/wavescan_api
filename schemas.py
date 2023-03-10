@@ -24,10 +24,16 @@ class UserBase(BaseModel):
 class UserUpdate(UserBase):
     password: Union[str, None] = None
 
+    class Config:
+        orm_mode = True
+
 class UserCreate(UserBase):
     email: str
     role: RoleEnum
     password: str
+
+    class Config:
+        orm_mode = True
 
 class User(UserBase):
     id: uuid.UUID
