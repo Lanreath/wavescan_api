@@ -125,7 +125,7 @@ async def delete_current_user(token: str = Depends(oauth2_scheme)):
 async def root():
     return {"message": "Hello World"}
 
-@app.post("/register/", response_model=schemas.User)
+@app.post("/register/", response_model=schemas.UserCreate)
 def register(user: schemas.UserCreate, db: Session = Depends(get_db)):
     db_user = crud.get_user_by_email(db, email=user.email)
     if db_user:
